@@ -11,7 +11,7 @@ public class ApiTest {
 
 	@BeforeClass
 	public static void setUp() {
-		RestAssured.baseURI = "http://localhost:8006/tasks-backend";
+		RestAssured.baseURI = "http://localhost:8001/tasks-backend";
 	}
 	
 	@Test
@@ -26,7 +26,7 @@ public class ApiTest {
 	@Test
 	public void deveAdicionarTarefaComSuccesso() {
 		RestAssured.given()
-			.body("{\"task\": \"Teste via API\",\"dueDate\": \"2021-12-30\"}")
+			.body("{\"task\": \"Teste via API\",\"dueDate\": \"2022-05-26\"}")
 			.contentType(ContentType.JSON)
 		.when()
 			.post("/todo")
