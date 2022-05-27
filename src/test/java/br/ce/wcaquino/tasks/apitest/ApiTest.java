@@ -1,5 +1,9 @@
 package br.ce.wcaquino.tasks.apitest;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.hamcrest.CoreMatchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -9,6 +13,8 @@ import io.restassured.http.ContentType;
 
 public class ApiTest {
 
+	
+	 
 	@BeforeClass
 	public static void setUp() {
 		RestAssured.baseURI = "http://localhost:8001/tasks-backend";
@@ -25,8 +31,11 @@ public class ApiTest {
 
 	@Test
 	public void deveAdicionarTarefaComSuccesso() {
+		String date = LocalDate.now().toString();
+		System.out.println(java.time.LocalDate.now());
 		RestAssured.given()
-			.body("{\"task\": \"Teste via API\",\"dueDate\": \"2022-05-26\"}")
+			//.body("{\"task\": \"Teste via API\",\"dueDate\":" + date +"}")
+			.body("{\"task\": \"Teste via API\",\"dueDate\": \"2022-06-25\"}")
 			.contentType(ContentType.JSON)
 		.when()
 			.post("/todo")
